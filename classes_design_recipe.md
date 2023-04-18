@@ -90,12 +90,19 @@ combinations that reflect the ways in which the system will be used._
 # EXAMPLE
 
 # Gets transactions
-library = MusicLibrary.new
-track_1 = Track.new("Carte Blanche", "Veracocha")
-track_2 = Track.new("Synaesthesia", "The Thrillseekers")
-library.add(track_1)
-library.add(track_2)
-library.all # => [track_1, track_2]
+account = new Account()
+deposit1 = new Deposit(200)
+withdrwall1 = new withdrawall(100)
+account.deposit(deposit1)
+account.withdrawall(withdrwall1)
+account.balance => 100
+
+# Starting balance zero
+
+# If starting balance zero, unable to withdraw
+
+# If withdrawal is larger than the balance, able to only withdraw the balance
+
 ```
 
 ## 4. Create Examples as Unit Tests
