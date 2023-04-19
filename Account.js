@@ -7,6 +7,10 @@ class Account {
         return this.balance += deposit.amount;
     }
 
+    subtractWithdrawal(withdrawal) {
+        return this.balance -= withdrawal.amount;
+    }
+
 }
 
 module.exports = Account;

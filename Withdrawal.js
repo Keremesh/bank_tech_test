@@ -1,8 +1,10 @@
-class Deposit {
+class Withdrawal {
     constructor(amount) {
         this.amount = amount;
     }
 
+    
+
 }
 
-module.exports = Deposit;
+module.exports = Withdrawal;

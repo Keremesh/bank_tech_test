@@ -1,5 +1,6 @@
 const Account = require('./Account');
 const Deposit = require('./Deposit');
+const Withdrawal = require('./Withdrawal');
 
 describe('Account', () => {
     test('shows starting balance as zero', () => {
@@ -15,15 +16,13 @@ describe('Account', () => {
         account.addDeposit(deposit2);
         expect(account.balance).toEqual(500);
     });
-    test.skip('subtracts the withdrawed amount from the balance', () => {
-        const account = new Account(1000);
+    test('subtracts the withdrawn amount from the balance', () => {
+        const account = new Account(0);
+        const deposit = new Deposit(1000);
+        account.addDeposit(deposit);
         const withdrawal = new Withdrawal(100);
         account.subtractWithdrawal(withdrawal);
-        expect(account.balance).toEqual(800);
-        // const deposit2 = new Deposit(300);
-        // account.addDeposit(deposit2);
-        // expect(account.balance).toEqual(500);
-        ;
+        expect(account.balance).toEqual(900);
     });
 
 })
