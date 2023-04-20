@@ -1,13 +1,16 @@
 const Account = require('./Account');
 const Deposit = require('./Deposit');
 const Withdrawal = require('./Withdrawal');
+const Dates = require('./Dates');
 
 describe('Account', () => {
-    test('shows starting balance as zero', () => {
+
+    it('should show the starting balance as zero', () => {
         const account = new Account();
         expect(account.balance).toEqual(0);
     });
-    test('adds the deposited amount to the balance', () => {
+
+    it('should add the deposited amount to the balance', () => {
         const account = new Account(0);
         const deposit1 = new Deposit(200);
         account.addDeposit(deposit1);
@@ -16,7 +19,8 @@ describe('Account', () => {
         account.addDeposit(deposit2);
         expect(account.balance).toEqual(500);
     });
-    test('subtracts the withdrawn amount from the balance', () => {
+
+    it('should subtract the withdrawn amount from the balance', () => {
         const account = new Account(0);
         const deposit = new Deposit(1000);
         account.addDeposit(deposit);
@@ -25,4 +29,14 @@ describe('Account', () => {
         expect(account.balance).toEqual(900);
     });
 
+    // should not allow withdrawal below the balance - throwError;
+
+    test('should show the date of the transaction in the correct format', () => {
+        const date = new Date().toLocaleDateString('en-gb');
+        const account = new Account();
+        const deposit = new Deposit(200);
+        account.addDeposit(deposit);
+        expect(account.transactions).toEqual([{ balance: 200, credit: "", date: `${date}`, debit: 200 }]);
+        
+    });
 })

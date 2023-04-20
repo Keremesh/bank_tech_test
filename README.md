@@ -25,3 +25,9 @@ date || credit || debit || balance
 14/01/2023 || || 500.00 || 2500.00
 13/01/2023 || 2000.00 || || 3000.00
 10/01/2023 || 1000.00 || || 1000.00
+
+
+Program starts with the Account balance of zero as in real life situation when a user opens a fresh bank account. 
+
+Mistake re credit and debit, its the other way round
+
