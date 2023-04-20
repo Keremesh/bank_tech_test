@@ -5,8 +5,7 @@ const dates = new Dates();
 class Account {
     constructor() {
         this.balance = 0;
-        this.transactions = [];
-        
+        this.transactions = [];    
     }
 
     addDeposit(deposit) {

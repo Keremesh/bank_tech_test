@@ -38,7 +38,6 @@ describe('Account', () => {
         // account.addDeposit(deposit);
         // expect(account.subtractWithdrawal(200)).toThrow('Insufficient funds');
         expect(() => account.subtractWithdrawal(200)).toThrow('Insufficient funds');
-
     });
 
     test('should show the date of the deposit in the correct format', () => {
