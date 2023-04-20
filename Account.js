@@ -17,13 +17,18 @@ class Account {
             credit: "",
             balance: this.balance
         });
-       
-       
-
+        // return this.balance;
     }
 
     subtractWithdrawal(withdrawal) {
-        return this.balance -= withdrawal.amount;
+        this.balance -= withdrawal.amount;
+        this.transactions.push({
+            date: dates.getCurrentDate(),
+            debit: "",
+            credit: withdrawal.amount,
+            balance: this.balance
+        });
+        // return this.balance
     }
 
 

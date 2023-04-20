@@ -31,12 +31,24 @@ describe('Account', () => {
 
     // should not allow withdrawal below the balance - throwError;
 
-    test('should show the date of the transaction in the correct format', () => {
+    test('should show the date of the deposit in the correct format', () => {
         const date = new Date().toLocaleDateString('en-gb');
-        const account = new Account();
+        const account = new Account(0);
         const deposit = new Deposit(200);
         account.addDeposit(deposit);
         expect(account.transactions).toEqual([{ balance: 200, credit: "", date: `${date}`, debit: 200 }]);
         
+    });
+
+    test('should show the date of the withdrawal in the correct format', () => {
+        const date = new Date().toLocaleDateString('en-gb');
+        const account = new Account(0);
+        const deposit = new Deposit(300);
+        account.addDeposit(deposit);
+        const withdrawal = new Withdrawal(150);
+        account.subtractWithdrawal(withdrawal);
+        expect(account.transactions[0]).toEqual({ balance: 300, credit: "", date: `${date}`, debit: 300 });
+        expect(account.transactions[1]).toEqual({ balance: 150, credit: 150, date: `${date}`, debit: "" });
+        expect(account.transactions).toEqual([{ balance: 300, credit: "", date: `${date}`, debit: 300 }, {balance: 150, credit: 150, date: `${date}`, debit: ""}]);
     });
 })
