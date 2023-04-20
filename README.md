@@ -4,6 +4,8 @@ This program allows a client to make deposits and withdrawals and print out an a
 
 The program does not utilise user interface at this moment.
 
+For information on how the program was designed, please refer to classes_design_recipe file. 
+
 ## Usage
 
 To use the app, you can create an instance of the "Account" class and call its methods to make deposits and withdrawals, and print the account statement. 
