@@ -51,4 +51,18 @@ describe('Account', () => {
         expect(account.transactions[1]).toEqual({ balance: 150, credit: 150, date: `${date}`, debit: "" });
         expect(account.transactions).toEqual([{ balance: 300, credit: "", date: `${date}`, debit: 300 }, {balance: 150, credit: 150, date: `${date}`, debit: ""}]);
     });
+
+    test('should print the statement in the correct format', () => {
+        const date = new Date().toLocaleDateString('en-gb');
+        const account = new Account(0);
+        const deposit = new Deposit(1000);
+        account.addDeposit(deposit);
+        const withdrawal = new Withdrawal(200);
+        account.subtractWithdrawal(withdrawal);
+        // account.printStatement();
+        const result = `date || credit || debit || balance\n${date}  ||    ||  1000  ||  1000\n${date}  ||  200  ||    ||  800\n`
+        expect(account.printStatement()).toEqual(result);
+        
+    });
+
 })

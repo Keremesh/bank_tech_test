@@ -31,6 +31,27 @@ class Account {
         // return this.balance
     }
 
+    printStatement() {
+
+        let statement = 'date || credit || debit || balance\n'
+
+        for (let i = 0; i < this.transactions.length; i++) {
+            const transaction = this.transactions[i];
+
+            // const credit = this.transactions.credit
+            // const date = transaction.date.toLocaleDateString('en-gb');
+            statement += `${transaction.date}  ||  ${transaction.credit}  ||  ${transaction.debit}  ||  ${transaction.balance}\n`;
+        }
+        console.log(statement)
+        return statement;
+        // console.log("hoi")
+        
+        // const output = "date || credit || debit || balance \n" //+ this.transactions
+        // console.log(output)
+
+        
+    }
+
 
 
 }
