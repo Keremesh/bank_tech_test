@@ -21,6 +21,9 @@ class Account {
     }
 
     subtractWithdrawal(withdrawal) {
+        if (withdrawal > this.balance) {
+            throw new Error('Insufficient funds')
+        }
         this.balance -= withdrawal.amount;
         this.transactions.push({
             date: dates.getCurrentDate(),

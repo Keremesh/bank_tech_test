@@ -29,15 +29,24 @@ describe('Account', () => {
         expect(account.balance).toEqual(900);
     });
 
-    // should not allow withdrawal below the balance - throwError;
+    test('should throw error if the balance is less than the withrawal amount', () => {
+        const account = new Account(100);
+        // const withdrawal = new Withdrawal(200);
+        // const date = new Date().toLocaleDateString('en-gb');
+        // const account = new Account(0);
+        // const deposit = new Deposit(200);
+        // account.addDeposit(deposit);
+        // expect(account.subtractWithdrawal(200)).toThrow('Insufficient funds');
+        expect(() => account.subtractWithdrawal(200)).toThrow('Insufficient funds');
+
+    });
 
     test('should show the date of the deposit in the correct format', () => {
         const date = new Date().toLocaleDateString('en-gb');
         const account = new Account(0);
         const deposit = new Deposit(200);
         account.addDeposit(deposit);
-        expect(account.transactions).toEqual([{ balance: 200, credit: "", date: `${date}`, debit: 200 }]);
-        
+        expect(account.transactions).toEqual([{ balance: 200, credit: "", date: `${date}`, debit: 200 }]);   
     });
 
     test('should show the date of the withdrawal in the correct format', () => {
@@ -61,8 +70,7 @@ describe('Account', () => {
         account.subtractWithdrawal(withdrawal);
         // account.printStatement();
         const result = `date || credit || debit || balance\n${date}  ||    ||  1000  ||  1000\n${date}  ||  200  ||    ||  800\n`
-        expect(account.printStatement()).toEqual(result);
-        
+        expect(account.printStatement()).toEqual(result);    
     });
 
 })
